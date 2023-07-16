@@ -24,4 +24,9 @@ public class GroundSpawner : MonoBehaviour
         Vector3 pos = new Vector3(transform.position.x - groundHorizontalLength, transform.position.y, 0);
         Instantiate(ground, pos, transform.rotation);
     }
+
+    public void playLoudExlosion()
+    {
+
+    }
 }

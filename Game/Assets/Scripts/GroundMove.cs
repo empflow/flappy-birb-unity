@@ -7,13 +7,13 @@ public class GroundMove : MonoBehaviour
     public float spawnNewGroundAtX;
     private float moveSpeed;
     private GameManager gameManager;
-    private new Renderer renderer;
+    private GroundSpawner groundSpawner;
 
     private void Start()
     {
-        renderer = GetComponent<Renderer>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         moveSpeed = gameManager.objectsSpeed;
+        groundSpawner = GameObject.FindGameObjectWithTag("GroundSpawner").GetComponent<GroundSpawner>();
     }
 
     void Update()
@@ -24,5 +24,13 @@ public class GroundMove : MonoBehaviour
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!gameManager.hasLost)
+        {
+            gameManager.gameOver();
+        }
     }
 }

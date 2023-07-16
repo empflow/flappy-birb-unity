@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PipesPrefab : MonoBehaviour
 {
-    public static AudioSource collisionSfSrc;
+    private static AudioSource collisionSoundSrc;
 
     private void Start()
     {
-        collisionSfSrc = GetComponent<AudioSource>();
+        collisionSoundSrc = GetComponent<AudioSource>();
     }
 
-    public void playCollisionSf()
+    public void playCollisionSound()
     {
-        collisionSfSrc.Play();
+        collisionSoundSrc.Play();
     }
 }

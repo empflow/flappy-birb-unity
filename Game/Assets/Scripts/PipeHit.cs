@@ -16,6 +16,9 @@ public class PipeHit : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         gameManager.decrementLivesLeft();
-        pipesPrefab.playCollisionSf();
+        if (gameManager.livesLeft > 0)
+        {
+            pipesPrefab.playCollisionSound();
+        }
     }
 }

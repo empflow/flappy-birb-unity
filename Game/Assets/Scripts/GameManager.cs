@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
 
     [Header("Lives Left")]
-    private int livesLeft;
+    public int livesLeft;
     public int initLives;
     public string livesLeftTextBase;
     public Text livesLeftText;
@@ -26,10 +26,14 @@ public class GameManager : MonoBehaviour
     public Text gameOverScreenScoreText;
     public string gameOverScreenScoreTextBase;
 
+    [Header("Sounds")]
+    private AudioSource loudExplosionSrc;
+
 
 
     private void Start()
     {
+        loudExplosionSrc = GetComponent<AudioSource>();
         updateLivesLeft(initLives);
         updateScore(score);
     }
@@ -69,6 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void gameOver()
     {
+        loudExplosionSrc.Play();
         hasLost = true;
         gameOverScreenScoreText.text = gameOverScreenScoreTextBase + score.ToString();
         gameOverScreen.SetActive(true);
