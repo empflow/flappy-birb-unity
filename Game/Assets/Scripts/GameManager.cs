@@ -40,7 +40,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-
+        if (livesLeft == 0 && !hasLost)
+        {
+            gameOver();
+        }
     }
 
     public void updateScore(int newScore)
@@ -59,10 +62,6 @@ public class GameManager : MonoBehaviour
     {
         livesLeft = newLivesLeft;
         livesLeftText.text = livesLeftTextBase + livesLeft.ToString();
-        if (livesLeft == 0)
-        {
-             gameOver();
-        }
     }
 
     public void decrementLivesLeft()
@@ -73,6 +72,7 @@ public class GameManager : MonoBehaviour
 
     public void gameOver()
     {
+        updateLivesLeft(0);
         loudExplosionSrc.Play();
         hasLost = true;
         gameOverScreenScoreText.text = gameOverScreenScoreTextBase + score.ToString();
