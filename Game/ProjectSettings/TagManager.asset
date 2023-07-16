@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GameManager
   - PipesPrefab
+  - GroundSpawner
   layers:
   - Default
   - TransparentFX
