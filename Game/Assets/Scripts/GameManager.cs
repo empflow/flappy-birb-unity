@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 120;
         loudExplosionSrc = GetComponent<AudioSource>();
         updateLivesLeft(initLives);
         updateScore(score);
