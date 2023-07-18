@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject bird;
+    public GameObject explosion;
+
     [Header("Score")]
     private int score = 0;
     public string scoreTextBase;
@@ -72,6 +75,8 @@ public class GameManager : MonoBehaviour
 
     public void gameOver()
     {
+        Vector3 birdPos = bird.transform.position;
+        Instantiate(explosion, birdPos, Quaternion.identity);
         updateLivesLeft(0);
         loudExplosionSrc.Play();
         hasLost = true;

@@ -17,8 +17,8 @@ public class BirdScript : MonoBehaviour
 
     void Update()
     {
-
-        if (!gameManager.hasLost && Input.GetKeyDown(KeyCode.Space))
+        bool isTouchingScreen = Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began;
+        if (!gameManager.hasLost && (Input.GetKeyDown(KeyCode.Space)) || isTouchingScreen)
         {
             rb.velocity = Vector2.up * flapStrength;
         }
